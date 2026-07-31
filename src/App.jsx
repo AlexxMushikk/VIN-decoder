@@ -1,4 +1,5 @@
 import VinForm from './components/VinForm'
+import './App.css'
 
 function App() {
     function handleSubmit(vin) {
@@ -6,7 +7,7 @@ function App() {
     }
 
     return (
-        <main>
+        <main className="layout">
             <h1>VIN Decoder</h1>
             <VinForm onSubmit={handleSubmit} />
         </main>
