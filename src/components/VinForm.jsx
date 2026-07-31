@@ -2,15 +2,14 @@ import { useState } from 'react'
 import { validateVin } from '../utils/validateVin'
 import './VinForm.css'
 
-function VinForm({ onSubmit, isLoading }) {
-    const [value, setValue] = useState('')
-    const [error, setError] = useState(null)
+function VinForm({ value, onChange, onSubmit, isLoading }) {
+    const [submission, setSubmission] = useState(null)
+
+    const error =
+        submission && submission.vin === value.trim() ? submission.error : null
 
     function handleChange(event) {
-        setValue(event.target.value.toUpperCase())
-        if (error) {
-            setError(null)
-        }
+        onChange(event.target.value.toUpperCase())
     }
 
     function handleSubmit(event) {
@@ -18,7 +17,7 @@ function VinForm({ onSubmit, isLoading }) {
 
         const vin = value.trim()
         const validationError = validateVin(vin)
-        setError(validationError)
+        setSubmission({ vin, error: validationError })
 
         if (!validationError) {
             onSubmit(vin)

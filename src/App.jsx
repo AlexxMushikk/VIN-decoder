@@ -1,58 +1,33 @@
-import { useState } from 'react'
-import { decodeVin } from './api/vpic'
-import { VARIABLE_IDS, getVehicleDetails, getVariableValue } from './utils/vinResults'
-import VinForm from './components/VinForm'
-import VinResults from './components/VinResults'
+import { Routes, Route, NavLink } from 'react-router-dom'
+import HomePage from './pages/HomePage'
+import VariablesPage from './pages/VariablesPage'
+import VariablePage from './pages/VariablePage'
 import './App.css'
 
 function App() {
-    const [data, setData] = useState(null)
-    const [isLoading, setIsLoading] = useState(false)
-    const [fetchError, setFetchError] = useState(null)
-
-    async function handleSubmit(vin) {
-        setIsLoading(true)
-        setFetchError(null)
-
-        try {
-            const response = await decodeVin(vin)
-            setData(response)
-        } catch (error) {
-            setFetchError(error.message)
-            setData(null)
-        } finally {
-            setIsLoading(false)
-        }
-    }
-
-    const results = data?.Results ?? []
-    const vehicleDetails = getVehicleDetails(results)
-    const errorCode = getVariableValue(results, VARIABLE_IDS.ERROR_CODE)
-    const errorText = getVariableValue(results, VARIABLE_IDS.ERROR_TEXT)
-    const hasVinIssues = errorCode !== null && errorCode !== '0'
-
     return (
-        <main className="layout">
-            <h1>VIN Decoder</h1>
+        <div className="layout">
+            <header className="header">
+                <h1 className="header__title">VIN Decoder</h1>
+                <nav className="nav">
+                    <NavLink className="nav__link" to="/" end>
+                        Головна
+                    </NavLink>
+                    <NavLink className="nav__link" to="/variables">
+                        Змінні
+                    </NavLink>
+                </nav>
+            </header>
 
-            <VinForm onSubmit={handleSubmit} isLoading={isLoading} />
-
-            {fetchError && <p className="error">{fetchError}</p>}
-
-            {data && !isLoading && (
-                <section>
-                    <p className="message">{data.Message}</p>
-
-                    {hasVinIssues && <p className="warning">{errorText}</p>}
-
-                    {vehicleDetails.length > 0 ? (
-                        <VinResults items={vehicleDetails} />
-                    ) : (
-                        <p>Немає даних для цього VIN</p>
-                    )}
-                </section>
-            )}
-        </main>
+            <main>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/variables" element={<VariablesPage />} />
+                    <Route path="/variables/:variableId" element={<VariablePage />} />
+                    <Route path="*" element={<p>Сторінку не знайдено</p>} />
+                </Routes>
+            </main>
+        </div>
     )
 }
 

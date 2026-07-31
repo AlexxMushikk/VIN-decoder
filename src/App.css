@@ -23,3 +23,43 @@
     background: #fff6e5;
     color: #8a5a00;
 }
+
+.header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 8px 24px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.header__title {
+    margin: 0;
+    font-size: 24px;
+}
+
+.nav {
+    display: flex;
+    gap: 16px;
+}
+
+.nav__link {
+    color: #555;
+    text-decoration: none;
+}
+
+.nav__link:hover {
+    color: #1a1a1a;
+}
+
+.nav__link.active {
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
+.search {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}

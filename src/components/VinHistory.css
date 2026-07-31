@@ -1,0 +1,42 @@
+.history {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin: 12px 0 0;
+}
+
+.history__title {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #888;
+}
+
+.history__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.history__item {
+    padding: 4px 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+}
+
+.history__item:hover:not(:disabled) {
+    border-color: #1a1a1a;
+}
+
+.history__item:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
