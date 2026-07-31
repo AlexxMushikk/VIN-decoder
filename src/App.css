@@ -11,7 +11,7 @@
     gap: 8px 24px;
     margin-bottom: 24px;
     padding-bottom: 16px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border);
 }
 
 .header__title {
@@ -25,23 +25,28 @@
 }
 
 .nav__link {
-    color: #555;
+    color: var(--color-muted);
     text-decoration: none;
 }
 
 .nav__link:hover {
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 .nav__link.active {
-    color: #1a1a1a;
+    color: var(--color-text);
     font-weight: 500;
+}
+
+.page-title {
+    margin: 0 0 20px;
+    font-size: 20px;
 }
 
 .error {
     margin: 16px 0;
     padding: 12px;
-    border-radius: 4px;
+    border-radius: var(--radius);
     background: #fdeded;
-    color: #c0392b;
+    color: var(--color-error);
 }

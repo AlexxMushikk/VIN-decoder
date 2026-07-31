@@ -10,7 +10,7 @@
     margin: 0;
     font-size: 13px;
     font-weight: 400;
-    color: #888;
+    color: var(--color-subtle);
 }
 
 .history__list {
@@ -28,12 +28,12 @@
     border-radius: 12px;
     background: #fafafa;
     font-size: 13px;
-    color: #555;
+    color: var(--color-muted);
     cursor: pointer;
 }
 
 .history__item:hover:not(:disabled) {
-    border-color: #1a1a1a;
+    border-color: var(--color-text);
 }
 
 .history__item:disabled {

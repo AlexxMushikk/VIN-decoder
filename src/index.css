@@ -1,3 +1,17 @@
+:root {
+    --color-text: #1a1a1a;
+    --color-muted: #555;
+    --color-subtle: #888;
+    --color-border: #eee;
+    --color-border-input: #ccc;
+    --color-error: #c0392b;
+    --radius: 4px;
+}
+
+html {
+    scrollbar-gutter: stable;
+}
+
 *,
 *::before,
 *::after {
@@ -8,13 +22,10 @@ body {
     margin: 0;
     font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.5;
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 button,
 input {
     font: inherit;
-}
-html {
-    scrollbar-gutter: stable;
 }
