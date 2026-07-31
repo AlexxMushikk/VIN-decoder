@@ -1,11 +1,25 @@
 const BASE_URL = 'https://vpic.nhtsa.dot.gov/api/vehicles'
 
-export async function decodeVin(vin) {
-    const response = await fetch(`${BASE_URL}/decodevin/${vin}?format=json`)
+async function request(path) {
+    let response
 
-    if (!response.ok) {
-        throw new Error(`Помилка запиту: ${response.status}`)
+    try {
+        response = await fetch(`${BASE_URL}${path}`)
+    } catch {
+        throw new Error('Сервер не відповідає. Перевірте підключення до інтернету.')
     }
 
-    return response.json()
+    if (!response.ok) {
+        throw new Error(`Сервіс NHTSA недоступний (код ${response.status})`)
+    }
+
+    try {
+        return await response.json()
+    } catch {
+        throw new Error('Сервер повернув некоректну відповідь')
+    }
+}
+
+export function decodeVin(vin) {
+    return request(`/decodevin/${vin}?format=json`)
 }
