@@ -1,5 +1,16 @@
+import VinForm from './components/VinForm'
+
 function App() {
-    return <h1>VIN Decoder</h1>
+    function handleSubmit(vin) {
+        console.log('VIN:', vin)
+    }
+
+    return (
+        <main>
+            <h1>VIN Decoder</h1>
+            <VinForm onSubmit={handleSubmit} />
+        </main>
+    )
 }
 
 export default App
