@@ -23,3 +23,7 @@ async function request(path) {
 export function decodeVin(vin) {
     return request(`/decodevin/${vin}?format=json`)
 }
+
+export function getVariablesList() {
+    return request('/getvehiclevariablelist?format=json')
+}
