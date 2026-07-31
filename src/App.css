@@ -3,3 +3,23 @@
     margin: 0 auto;
     padding: 24px 16px;
 }
+.message {
+    margin: 16px 0;
+    font-size: 14px;
+    color: #666;
+}
+.error {
+    margin: 16px 0;
+    padding: 12px;
+    border-radius: 4px;
+    background: #fdeded;
+    color: #c0392b;
+}
+
+.warning {
+    margin: 16px 0;
+    padding: 12px;
+    border-radius: 4px;
+    background: #fff6e5;
+    color: #8a5a00;
+}

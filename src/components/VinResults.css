@@ -1,0 +1,28 @@
+.vin-results {
+    margin: 0;
+}
+
+.vin-results__row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.vin-results__term {
+    font-weight: 500;
+    color: #555;
+}
+
+.vin-results__value {
+    margin: 0;
+    overflow-wrap: break-word;
+}
+
+@media (min-width: 640px) {
+    .vin-results__row {
+        grid-template-columns: 240px 1fr;
+        gap: 16px;
+    }
+}

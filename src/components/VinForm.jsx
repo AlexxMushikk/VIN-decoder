@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { validateVin } from '../utils/validateVin'
 import './VinForm.css'
 
-function VinForm({ onSubmit }) {
+function VinForm({ onSubmit, isLoading }) {
     const [value, setValue] = useState('')
     const [error, setError] = useState(null)
 
@@ -42,10 +42,10 @@ function VinForm({ onSubmit }) {
                     placeholder="1FTFW1CT5DFC10312"
                     autoComplete="off"
                     aria-invalid={Boolean(error)}
-                    aria-describedb y={error ? 'vin-error' : undefined}
+                    aria-describedby={error ? 'vin-error' : undefined}
                 />
-                <button className="vin-form__button" type="submit">
-                    Розшифрувати
+                <button className="vin-form__button" type="submit" disabled={isLoading}>
+                    {isLoading ? 'Завантаження...' : 'Розшифрувати'}
                 </button>
             </div>
 
