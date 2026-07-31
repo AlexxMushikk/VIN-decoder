@@ -5,6 +5,7 @@ import { useVinHistory } from '../hooks/useVinHistory'
 import VinForm from '../components/VinForm'
 import VinResults from '../components/VinResults'
 import VinHistory from '../components/VinHistory'
+import './HomePage.css'
 
 function HomePage() {
     const [vin, setVin] = useState('')
